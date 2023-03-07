@@ -2,7 +2,7 @@
 
 ```tf
 module "lambda" {
-  source = "./"
+  source = "git::https://github.com/raphaeljoie/terraform-aws-zip-lambda.git?ref=v0.1.0"
   
   lambda_name = "my_lambda"
   # watch for async and sync JS examples in example directory
@@ -65,3 +65,4 @@ No modules.
 ## TODO
 - [ ] Check accepted chars for main file name (accept "-" ?)
 - [ ] source_main_file to `entrypoint_file`
+- [ ] support for S3 upload
