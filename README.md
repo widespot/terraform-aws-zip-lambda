@@ -7,7 +7,7 @@ module "lambda" {
   lambda_name = "my_lambda"
   # watch for async and sync JS examples in example directory
   source_path = "./examples/javascript-lambda"
-  source_main_file = "async-handler" 
+  entrypoint_file = "async-handler" 
 }
 ```
 
@@ -46,12 +46,12 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_entrypoint_file"></a> [entrypoint\_file](#input\_entrypoint\_file) | Name of the file, without extension, in the source\_path directory to execute as entrypoint. Default value `handler` stands for handler.js | `string` | `"handler"` | no |
+| <a name="input_entrypoint_function"></a> [entrypoint\_function](#input\_entrypoint\_function) | name of the handler function in the `entrypoint_file`. | `string` | `"handler"` | no |
 | <a name="input_lambda_name"></a> [lambda\_name](#input\_lambda\_name) | Name of the lambda function. Must be unique in the region | `string` | n/a | yes |
-| <a name="input_source_handler_function"></a> [source\_handler\_function](#input\_source\_handler\_function) | name of the handler function in the source\_main\_file. | `string` | `"handler"` | no |
-| <a name="input_source_main_file"></a> [source\_main\_file](#input\_source\_main\_file) | Name of the file, without extension, in the source\_path directory to execute as entrypoint. Default is handler for handler.js | `string` | `"handler"` | no |
 | <a name="input_source_path"></a> [source\_path](#input\_source\_path) | Path to the directory to zip. Archive must be less than XX | `string` | n/a | yes |
 | <a name="input_timeout"></a> [timeout](#input\_timeout) | Lambda timeout, in seconds | `number` | `3` | no |
-| <a name="input_zip_name"></a> [zip\_name](#input\_zip\_name) | Name of the zip archive, including extension. Default is `{var.lambda_name}.zip` | `string` | `null` | no |
+| <a name="input_zip_name"></a> [zip\_name](#input\_zip\_name) | Name of the zip archive, including extension. Default is `${var.lambda_name}.zip` | `string` | `null` | no |
 
 ## Outputs
 
@@ -64,5 +64,4 @@ No modules.
 
 ## TODO
 - [ ] Check accepted chars for main file name (accept "-" ?)
-- [ ] source_main_file to `entrypoint_file`
 - [ ] support for S3 upload

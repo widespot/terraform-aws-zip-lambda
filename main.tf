@@ -60,6 +60,6 @@ resource "aws_lambda_function" "this" {
   runtime           = "nodejs18.x"
 
   source_code_hash  = data.archive_file.this.output_base64sha256
-  handler           = "${var.source_main_file}.${var.source_handler_function}"
+  handler           = "${var.entrypoint_file}.${var.entrypoint_function}"
   timeout           = var.timeout
 }

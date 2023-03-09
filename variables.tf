@@ -4,26 +4,26 @@ variable "lambda_name" {
 }
 
 variable "source_path" {
-  type = string
+  type        = string
   description = "Path to the directory to zip. Archive must be less than XX"
 }
 
-variable "source_main_file" {
+variable "entrypoint_file" {
   type        = string
   default     = "handler"
-  description = "Name of the file, without extension, in the source_path directory to execute as entrypoint. Default is handler for handler.js"
+  description = "Name of the file, without extension, in the source_path directory to execute as entrypoint. Default value `handler` stands for handler.js"
 }
 
-variable "source_handler_function" {
+variable "entrypoint_function" {
   type        = string
   default     = "handler"
-  description = "name of the handler function in the source_main_file. "
+  description = "name of the handler function in the `entrypoint_file`. "
 }
 
 variable "zip_name" {
   type        = string
   default     = null
-  description = "Name of the zip archive, including extension. Default is `{var.lambda_name}.zip`"
+  description = "Name of the zip archive, including extension. Default is `$${var.lambda_name}.zip`"
 }
 
 variable "timeout" {
