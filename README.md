@@ -46,6 +46,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_edge_permissions"></a> [edge\_permissions](#input\_edge\_permissions) | Enable extended log permissions for Lambda@Edge function to register log in any region. https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/edge-functions-logs.html | `bool` | `false` | no |
 | <a name="input_entrypoint_file"></a> [entrypoint\_file](#input\_entrypoint\_file) | Name of the file, without extension, in the source\_path directory to execute as entrypoint. Default value `handler` stands for handler.js | `string` | `"handler"` | no |
 | <a name="input_entrypoint_function"></a> [entrypoint\_function](#input\_entrypoint\_function) | name of the handler function in the `entrypoint_file`. | `string` | `"handler"` | no |
 | <a name="input_lambda_name"></a> [lambda\_name](#input\_lambda\_name) | Name of the lambda function. Must be unique in the region | `string` | n/a | yes |

@@ -31,3 +31,9 @@ variable "timeout" {
   default     = 3
   description = "Lambda timeout, in seconds"
 }
+
+variable "edge_permissions" {
+  type        = bool
+  default     = false
+  description = "Enable extended log permissions for Lambda@Edge function to register log in any region. https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/edge-functions-logs.html"
+}
