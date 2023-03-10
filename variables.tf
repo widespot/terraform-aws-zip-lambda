@@ -32,6 +32,18 @@ variable "timeout" {
   description = "Lambda timeout, in seconds"
 }
 
+variable "runtime" {
+  type        = string
+  default     = "nodejs18.x"
+  description = "Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values."
+}
+
+variable "description" {
+  type        = string
+  default     = null
+  description = "Description of what your Lambda Function does."
+}
+
 variable "edge_permissions" {
   type        = bool
   default     = false

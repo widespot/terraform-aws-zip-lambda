@@ -52,10 +52,12 @@ resource "aws_lambda_function" "this" {
   function_name     = var.lambda_name
   role              = aws_iam_role.role.arn
 
+  description       = var.description
+
   publish           = true
 
   architectures     = ["x86_64"]
-  runtime           = "nodejs18.x"
+  runtime           = var.runtime
 
   source_code_hash  = data.archive_file.this.output_base64sha256
   handler           = "${var.entrypoint_file}.${var.entrypoint_function}"
