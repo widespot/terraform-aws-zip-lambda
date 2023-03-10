@@ -21,11 +21,14 @@ data "aws_iam_policy_document" "assume_role" {
 }
 
 resource "aws_iam_role" "role" {
-  name               = "AwsLambda${var.lambda_name}"
+  name               = coalesce(var.role_name, "AwsLambda-${var.lambda_name}")
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
+
+  tags = merge(var.tags, var.role_tags)
 }
 
 resource "aws_iam_role_policy" "policy" {
+  name = aws_iam_role.role.name
   role = aws_iam_role.role.id
   policy = jsonencode({
     "Version": "2012-10-17",
@@ -62,4 +65,6 @@ resource "aws_lambda_function" "this" {
   source_code_hash  = data.archive_file.this.output_base64sha256
   handler           = "${var.entrypoint_file}.${var.entrypoint_function}"
   timeout           = var.timeout
+
+  tags = var.tags
 }

@@ -8,6 +8,10 @@ module "lambda" {
   entrypoint_file = "async-handler"
 
   edge_permissions = true
+
+  tags = {
+    Terraform = "yes"
+  }
 }
 
 provider "aws" {

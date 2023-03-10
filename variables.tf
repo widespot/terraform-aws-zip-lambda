@@ -49,3 +49,21 @@ variable "edge_permissions" {
   default     = false
   description = "Enable extended log permissions for Lambda@Edge function to register log in any region. https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/edge-functions-logs.html"
 }
+
+variable "role_name" {
+  type        = string
+  default     = null
+  description = "Friendly name of the role. If omitted \"AwsLambda-$${var.lambda_name}\" is used. Maximum 64 characters. Use alphanumeric and '+=,.@-_' characters."
+}
+
+variable "role_tags" {
+  type        = map(string)
+  default     = {}
+  description = "Tags for the lambda role"
+}
+
+variable "tags" {
+  type        = map(string)
+  default     = {}
+  description = "Tags for all resources"
+}

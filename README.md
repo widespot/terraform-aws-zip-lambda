@@ -2,7 +2,7 @@
 
 ```tf
 module "lambda" {
-  source = "git::https://github.com/raphaeljoie/terraform-aws-zip-lambda.git?ref=v0.1.3"
+  source = "git::https://github.com/raphaeljoie/terraform-aws-zip-lambda.git?ref=v0.1.4"
   
   lambda_name = "my_lambda"
   # watch for async and sync JS examples in example directory
@@ -51,8 +51,11 @@ No modules.
 | <a name="input_entrypoint_file"></a> [entrypoint\_file](#input\_entrypoint\_file) | Name of the file, without extension, in the source\_path directory to execute as entrypoint. Default value `handler` stands for handler.js | `string` | `"handler"` | no |
 | <a name="input_entrypoint_function"></a> [entrypoint\_function](#input\_entrypoint\_function) | name of the handler function in the `entrypoint_file`. | `string` | `"handler"` | no |
 | <a name="input_lambda_name"></a> [lambda\_name](#input\_lambda\_name) | Name of the lambda function. Must be unique in the region | `string` | n/a | yes |
+| <a name="input_role_name"></a> [role\_name](#input\_role\_name) | Friendly name of the role. If omitted "AwsLambda-${var.lambda\_name}" is used. Maximum 64 characters. Use alphanumeric and '+=,.@-\_' characters. | `string` | `null` | no |
+| <a name="input_role_tags"></a> [role\_tags](#input\_role\_tags) | Tags for the lambda role | `map(string)` | `{}` | no |
 | <a name="input_runtime"></a> [runtime](#input\_runtime) | Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values. | `string` | `"nodejs18.x"` | no |
 | <a name="input_source_path"></a> [source\_path](#input\_source\_path) | Path to the directory to zip. Archive must be less than XX | `string` | n/a | yes |
+| <a name="input_tags"></a> [tags](#input\_tags) | Tags for all resources | `map(string)` | `{}` | no |
 | <a name="input_timeout"></a> [timeout](#input\_timeout) | Lambda timeout, in seconds | `number` | `3` | no |
 | <a name="input_zip_name"></a> [zip\_name](#input\_zip\_name) | Name of the zip archive, including extension. Default is `${var.lambda_name}.zip` | `string` | `null` | no |
 
