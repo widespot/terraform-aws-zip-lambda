@@ -1,4 +1,4 @@
-# Deploy AWS lambda from zip local file
+# Deploy AWS lambda from local files
 
 ```tf
 module "lambda" {
