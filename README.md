@@ -2,7 +2,8 @@
 
 ```tf
 module "lambda" {
-  source = "git::https://github.com/raphaeljoie/terraform-aws-zip-lambda.git?ref=v0.1.4"
+  source  = "widespot/zip-lambda/aws"
+  version = "0.1.4"
   
   lambda_name = "my_lambda"
   # watch for async and sync JS examples in example directory
